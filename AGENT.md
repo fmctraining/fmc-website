@@ -1,4 +1,4 @@
-# Agent Instructions for rwsdk-website Project
+# Agent Instructions for fmc-website Project
 
 ## Project overview
 This is a Cloudflare Workers RedwoodSDK project for a personal websiteapplication.
@@ -21,7 +21,7 @@ This is a Cloudflare Workers RedwoodSDK project for a personal websiteapplicatio
 
 ## Code Conventions
 - Uses TypeScript
-- React components in `src/app/` directory
-- Shared components in `src/app/shared/`
-- Uses Prettier formatting as defined in package.json
-- spaces not tabs, tabwidth 2, no semicolons, no trailing commas, line length 120
+- React components in `src/app/`
+- Typescript utilities in `src/lib/`
+- Prettier formatting as defined in package.json:
+  spaces not tabs, tabwidth 2, no semicolons, no trailing commas, line length 120

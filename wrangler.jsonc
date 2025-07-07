@@ -1,16 +1,13 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "jldec-website",
+  "name": "fmc-website",
   "main": "src/worker.tsx",
-  "compatibility_date": "2025-05-07",
-  "compatibility_flags": ["nodejs_compat", "nodejs_compat_populate_process_env"],
+  "compatibility_date": "2025-06-17",
+  "compatibility_flags": ["nodejs_compat", "nodejs_compat_do_not_populate_process_env"],
   "observability": {
     "enabled": true
   },
-  "ai": { "binding": "AI" },
   "vars": {
-    "RWSDK_CHATSTORE": "rwsdk-realtime-chat", // instance name for CHATSTORE_DURABLE_OBJECT
-    "REALTIME_KEY": "rwsdk-realtime-chat", // instance name for rwsdk REALTIME_DURABLE_OBJECT
     "GH_OWNER": "jldec",
     "GH_REPO": "jldec-me",
     "GH_BRANCH": "main",
@@ -18,44 +15,25 @@
     "GH_TEST": ""
   },
   // .dev.vars
-  // pnpm wrangler secret put OPENAI_API_KEY
   // pnpm wrangler secret put GH_PAT
   // pnpm wrangler secret put IMAGE_KEY
   "kv_namespaces": [
-    // pnpm wrangler kv namespace create rwsdk-website_PAGEDATA_CACHE
+    // pnpm wrangler kv namespace create fmc-website_PAGEDATA_CACHE
     {
       "binding": "PAGEDATA_CACHE",
-      "id": "80c397be30a5499f9e0e41e7bf825a89"
+      "id": "155a21d59bfc471d8969e6c74f38341b"
     },
-    // pnpm wrangler kv namespace create rwsdk-website_STATIC_CACHE
+    // pnpm wrangler kv namespace create fmc-website_STATIC_CACHE
     {
       "binding": "STATIC_CACHE",
-      "id": "8e5c2099f4174853a65ff4a500c01332"
+      "id": "a78b03e0ec7743a4ba97159705762d76"
     }
   ],
-  // pnpm wrangler r2 bucket create rwsdk-website-images
+  // pnpm wrangler r2 bucket create fmc-website-images
   "r2_buckets": [
     {
       "binding": "IMAGES",
-      "bucket_name": "rwsdk-website-images"
-    }
-  ],
-  "durable_objects": {
-    "bindings": [
-      {
-        "name": "REALTIME_DURABLE_OBJECT",
-        "class_name": "RealtimeDurableObject"
-      },
-      {
-        "name": "CHATSTORE_DURABLE_OBJECT",
-        "class_name": "ChatDurableObject"
-      }
-    ]
-  },
-  "migrations": [
-    {
-      "tag": "v1",
-      "new_sqlite_classes": ["RealtimeDurableObject", "ChatDurableObject"]
+      "bucket_name": "fmc-website-images"
     }
   ]
 }

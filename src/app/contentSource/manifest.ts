@@ -4,7 +4,7 @@ import { IS_DEV } from 'rwsdk/constants'
 import { requestInfo } from 'rwsdk/worker'
 import { env } from 'cloudflare:workers'
 
-const manifestCacheKey = 'manifest:jldec/rwsdk-website'
+const manifestCacheKey = 'manifest:jldec/fmc-website'
 
 let manifestMemo: null | string[] = null
 
@@ -46,7 +46,7 @@ export async function getManifest(noCache: boolean = false) {
         Accept: 'application/vnd.github+json',
         Authorization: `Bearer ${env.GH_PAT}`,
         'X-GitHub-Api-Version': '2022-11-28',
-        'User-Agent': 'rwsdk-website-worker'
+        'User-Agent': 'fmc-website-worker'
       }
     })
     if (resp.ok) {

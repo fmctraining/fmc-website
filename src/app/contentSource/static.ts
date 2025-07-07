@@ -28,7 +28,7 @@ export async function getStatic(path: string, noCache: boolean = false): Promise
           Accept: 'application/vnd.github.raw+json',
           Authorization: `Bearer ${env.GH_PAT}`,
           'X-GitHub-Api-Version': '2022-11-28',
-          'User-Agent': 'rwsdk-website-worker'
+          'User-Agent': 'fmc-website-worker'
         }
       }
     )
