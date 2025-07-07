@@ -9,6 +9,7 @@
     "test": "tsc && vitest run && prettier --check .",
     "build": "vite build",
     "preview": "vite build && vite preview",
+    "format": "prettier --write .",
     "ship": "vite build && wrangler deploy",
     "types": "wrangler types --include-runtime false --strict-vars false",
     "tail": "wrangler tail"
