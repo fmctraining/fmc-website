@@ -15,7 +15,7 @@ export function zapDirCache() {
 // never called with noCache
 // NOTE: this may trigger recursively because is runs getMarkdown for children
 export async function getDirData(dirPath: string, sortBy?: string, reverse?: boolean): Promise<DirData[] | undefined> {
-  console.log('getDirData', dirPath, sortBy)
+  // console.log('getDirData', dirPath, sortBy)
   const dirs = dirsMemo || (await getDirs())
   const dir = dirs[dirPath]
   if (!dir) return undefined

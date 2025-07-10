@@ -15,7 +15,7 @@ This is a Cloudflare Workers RedwoodSDK project for a personal websiteapplicatio
 - Regenerate worker-configuration.d.ts: `pnpm types`
 
 ## CSS
-- Uses Tailwind CSS v4 with @tailwindcss/vite plugin
+- Uses Tailwind CSS v4 with @tailwindcss vite plugin and DaisyUI
 - Markdown styled with `@plugin "@tailwindcss/typography";`
 - Additional style overrides in `src/app/styles.css`
 
