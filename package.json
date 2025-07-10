@@ -30,6 +30,7 @@
     "@types/node": "^24.0.10",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "daisyui": "^5.0.46",
     "dotenv": "^17.0.1",
     "fast-glob": "^3.3.3",
     "mime-types": "^3.0.1",

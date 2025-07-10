@@ -7,6 +7,8 @@ export const Document: React.FC<{ children: React.ReactNode }> = ({ children }) 
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="stylesheet" href={styles} />
       <link rel="icon" href="/favicon.ico" />
+      <link rel="preconnect" href="https://rsms.me/" />
+      <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     </head>
     <body>
       <div id="root">{children}</div>

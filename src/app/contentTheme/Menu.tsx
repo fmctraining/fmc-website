@@ -16,7 +16,7 @@ export const Menu = () => {
 
 function MenuLink({ link }: { link: Navlink }) {
   return (
-    <a className="px-[6px]" href={link.href} aria-label={link.text}>
+    <a className="" href={link.href} aria-label={link.text}>
       {link.icon
         ? (frontmatterIcons[link.icon as keyof typeof frontmatterIcons] ?? frontmatterIcons['default'])({
             name: link.icon,

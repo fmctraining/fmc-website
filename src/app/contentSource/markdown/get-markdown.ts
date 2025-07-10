@@ -58,7 +58,7 @@ export async function getPageData(path: string, noCache: boolean = false): Promi
   const sourceText = await getSourceText(path)
   if (!sourceText) return null
   const parsedFrontmatter = parseFrontmatter(sourceText)
-  const dirData = await getDirData(path, parsedFrontmatter.attrs.sortby)
+  const dirData = await getDirData(path, parsedFrontmatter.attrs.sortby || 'sort', parsedFrontmatter.attrs.sortreverse)
   const pageData = {
     path,
     attrs: parsedFrontmatter.attrs,

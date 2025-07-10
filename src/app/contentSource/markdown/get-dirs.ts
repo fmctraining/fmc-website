@@ -14,7 +14,8 @@ export function zapDirCache() {
 // returns undefined for non-dirpaths
 // never called with noCache
 // NOTE: this may trigger recursively because is runs getMarkdown for children
-export async function getDirData(dirPath: string, sortBy?: string): Promise<DirData[] | undefined> {
+export async function getDirData(dirPath: string, sortBy?: string, reverse?: boolean): Promise<DirData[] | undefined> {
+  console.log('getDirData', dirPath, sortBy)
   const dirs = dirsMemo || (await getDirs())
   const dir = dirs[dirPath]
   if (!dir) return undefined
@@ -27,7 +28,8 @@ export async function getDirData(dirPath: string, sortBy?: string): Promise<DirD
   })
   const dirData = await Promise.all(dirPromises || [])
   if (sortBy) {
-    dirData.sort(sortFn(sortBy)).reverse()
+    dirData.sort(sortFn(sortBy))
+    if (reverse) dirData.reverse()
   }
   // sort before populating next/prev
   for (let i = 0; i < dirData.length; i++) {
