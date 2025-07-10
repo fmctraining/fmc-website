@@ -25,6 +25,14 @@
   color: #008CFF;
 }
 
+.prose ul > li {
+  margin:0;
+}
+
+.prose ul > li > p {
+  margin:0;
+}
+
 h1 {
   position: relative;
   margin-top: 40px;
