@@ -16,7 +16,7 @@
   default: true;
   /* match futuremedia-concepts.com */
   --color-base-100: #262131;
-  --color-primary: #008CFF; /* blue */
+  --color-primary: rgb(34, 99, 231); /* blue */
   --color-secondary: #BE3479; /* pinkish */
   --color-accent: #F19200; /* orangy */
 }
@@ -36,16 +36,22 @@
 h1 {
   position: relative;
   margin-top: 40px;
+  text-align: center;
 }
 
 h1::before {
   content: '';
   position: absolute;
   top: -34px; /* 2/3 of -80px */
-  left: 0;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for the width of the element */
   width: 119px; /* 1/2 of 238px */
   height: 40px; /* 1/2 of 80px */
   background-image: url('/images/arrows_04.png');
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.clip-banner {
+  clip-path: polygon(1% 0%, 99% 0%, 98% 100%, 0% 100%);
 }

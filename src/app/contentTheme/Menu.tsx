@@ -1,28 +1,12 @@
-import { frontmatterIcons, type IconProps } from './icons'
-import { requestInfo as r } from 'rwsdk/worker'
-import type { Navlink } from '../contentSource/types'
-
-export const Menu = () => {
-  const siteData = r.ctx.pageContext?.siteData
-  if (!siteData) return null
-  return (
-    <nav className="flex flex-wrap mb-4">
-      {siteData?.navlinks?.map((link, index) => <MenuLink key={index} link={link} />)}
-      <span className="flex-grow"></span>
-      {siteData?.sociallinks?.map((link, index) => <MenuLink key={index} link={link} />)}
-    </nav>
-  )
-}
-
-function MenuLink({ link }: { link: Navlink }) {
-  return (
-    <a className="" href={link.href} aria-label={link.text}>
-      {link.icon
-        ? (frontmatterIcons[link.icon as keyof typeof frontmatterIcons] ?? frontmatterIcons['default'])({
-            name: link.icon,
-            className: 'h-5 hover:text-orange-500 transition-colors duration-200 ease-in-out'
-          })
-        : link.text}
-    </a>
-  )
-}
+export const Menu = () => (
+  <div className="p1 sm:p-4">
+    <div className="navbar">
+      <div className="navbar-start">
+        <img src="/images/fmc_logo_05.png" alt="FMC Logo" width="412" height="286" className="w-[80px] sm:w-[120px] md:w-[162px]" />
+      </div>
+    </div>
+    <div className="bg-primary text-white mt-2 sm:mt-4 md:mt-6 mx-2 px-6 py-1 text-center clip-banner text-[18px] md:text-[22px] font-semibold italic leading-[1.2] tracking-wider">
+      Quality, consistent and accessible training for content creators and IT professionals
+    </div>
+  </div>
+)
