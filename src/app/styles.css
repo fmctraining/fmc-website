@@ -1,2 +1,43 @@
+/* https://rsms.me/inter/download/ */
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, sans-serif; }
+}
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+  logs: false;
+}
+@plugin "daisyui/theme" {
+  name: 'dark';
+  default: true;
+  /* match futuremedia-concepts.com */
+  --color-base-100: #262131;
+  --color-primary: #008CFF; /* blue */
+  --color-secondary: #BE3479; /* pinkish */
+  --color-accent: #F19200; /* orangy */
+}
+
+.prose ul > li::marker {
+  color: #008CFF;
+}
+
+h1 {
+  position: relative;
+  margin-top: 40px;
+}
+
+h1::before {
+  content: '';
+  position: absolute;
+  top: -34px; /* 2/3 of -80px */
+  left: 0;
+  width: 119px; /* 1/2 of 238px */
+  height: 40px; /* 1/2 of 80px */
+  background-image: url('/images/arrows_04.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
