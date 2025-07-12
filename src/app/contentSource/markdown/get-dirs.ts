@@ -13,7 +13,7 @@ export function zapDirCache() {
 // fetch DirData for [children] under a dirpath
 // returns undefined for non-dirpaths
 // never called with noCache
-// NOTE: this may trigger recursively because is runs getMarkdown for children
+// prevent cascade by calling getPageData with noDir: true
 export async function getDirData(dirPath: string, sortBy?: string, reverse?: boolean): Promise<DirData[] | undefined> {
   // console.log('getDirData', dirPath, sortBy)
   const dirs = dirsMemo || (await getDirs())
@@ -23,7 +23,7 @@ export async function getDirData(dirPath: string, sortBy?: string, reverse?: boo
   // TODO: throttle and detect cycles
   const dirPromises = dir?.map(async (pageName): Promise<DirData> => {
     const pagePath = dirPath + (dirPath === '/' ? '' : '/') + pageName
-    const dirPage = await getPageData(pagePath)
+    const dirPage = await getPageData(pagePath, false, true)
     return { path: pagePath, attrs: dirPage?.attrs }
   })
   const dirData = await Promise.all(dirPromises || [])

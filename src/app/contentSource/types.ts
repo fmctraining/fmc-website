@@ -13,12 +13,18 @@ export type DirData = {
   prev?: Navlink
 }
 
+export type ParentData = {
+  path: string
+  name: string
+}
+
 export type PageData = {
   path: string
   attrs: Frontmatter
   md: string
   html: string
   dir?: DirData[]
+  crumbs: ParentData[]
 }
 
 export interface Frontmatter {
@@ -41,6 +47,8 @@ export interface Frontmatter {
   splashimage?: string
   splash?: Splash
   favicon?: string
+  name?: string
+  pathname?: string
   [key: string]: unknown
 }
 export interface Navlink {

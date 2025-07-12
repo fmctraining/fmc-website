@@ -7,6 +7,10 @@
   :root { font-family: InterVariable, sans-serif; }
 }
 @import 'tailwindcss';
+@theme {
+  --breakpoint-xxs: 340px;
+  --breakpoint-xs: 480px;
+}
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
   logs: false;
@@ -33,16 +37,32 @@
   margin:0;
 }
 
+.breadcrumbs {
+  & > menu, & > ul, & > ol {
+    & > li {
+      & + ::before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
 h1 {
   position: relative;
   margin-top: 40px;
   text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  color: #fff;
 }
 
 h1::before {
   content: '';
   position: absolute;
-  top: -34px; /* 2/3 of -80px */
+  top: -40px; /* 2/3 of -80px */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Adjust for the width of the element */
   width: 119px; /* 1/2 of 238px */

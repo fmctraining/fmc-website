@@ -1,12 +1,69 @@
-export const Menu = () => (
-  <div className="p1 sm:p-4">
-    <div className="navbar">
-      <div className="navbar-start">
-        <img src="/images/fmc_logo_05.png" alt="FMC Logo" width="412" height="286" className="w-[80px] sm:w-[120px] md:w-[162px]" />
+import { requestInfo as r } from 'rwsdk/worker'
+
+export const Menu = () => {
+  const pageData = r.ctx.pageContext?.pageData
+  const crumbs = pageData?.crumbs
+  const path = new URL(r.request.url).pathname
+  const isHome = path === '/'
+  return (
+    <div className="p-1 xxs:p-2 md:p-4">
+      <div className={'navbar min-h-auto pb-0 pr-0' + (isHome ? '' : ' items-baseline')}>
+        <div className="navbar-start">
+          <a href="/">
+            <img
+              src={isHome ? '/images/fmc_logo_05.png' : '/images/fmc_logo_top.png'}
+              alt="FMC Logo"
+              width="412"
+              height={isHome ? '256' : '150'}
+              className="w-[40px] -ml-1 xxs:ml-0 xs:w-[80px] sm:w-[120px] lg:w-[162px]"
+            />
+          </a>
+        </div>
+        <div className="navbar-end text-[12px] xs:text-[14px] sm:text-base md:text-xl font-semibold flex items-center uppercase ">
+          <a
+            href="https://futuremedia-concepts.com/"
+            className="px-1 xs:px-4 sm:px-6 md:px-8 py-1 md:py-3 hidden lg:block  border-r border-gray-400 border-b-4 border-b-transparent hover:border-b-white"
+          >
+            Home
+          </a>
+          <a
+            href="/"
+            className="px-1 xs:px-4 sm:px-6 md:px-8 py-1 md:py-3 border-r border-gray-400 border-b-4 border-b-transparent hover:border-b-primary"
+          >
+            Courses
+          </a>
+          <a
+            href="https://futuremedia-concepts.com/conferences/"
+            className="px-1 xs:px-4 sm:px-6 md:px-8 py-1 md:py-3 border-r border-gray-400 border-b-4 border-b-transparent hover:border-b-secondary"
+          >
+            Conferences
+          </a>
+          <a
+            href="https://futuremedia-concepts.com/certifications"
+            className="pl-1 xs:px-4 sm:px-6 md:px-8 py-1 md:py-3 border-b-4 border-b-transparent hover:border-b-accent"
+          >
+            Certifications
+          </a>
+        </div>
       </div>
+      {isHome ? (
+        <div className="bg-primary text-white mt-2 sm:mt-4 md:mt-6 mx-2 px-6 py-1 text-center clip-banner text-[18px] md:text-[22px] font-semibold italic leading-[1.2] tracking-wider">
+          Quality, consistent and accessible training for content creators and IT professionals
+        </div>
+      ) : (
+        <div className="breadcrumbs text-sm sm:text-base bg-primary px-2 py-1 mt-1 border-t border-primary">
+          <ul>
+            <li key="0">
+              <a href="/">Courses Home</a>
+            </li>
+            {crumbs?.map((crumb, index) => (
+              <li key={index}>
+                <a href={crumb.path}>{crumb.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
-    <div className="bg-primary text-white mt-2 sm:mt-4 md:mt-6 mx-2 px-6 py-1 text-center clip-banner text-[18px] md:text-[22px] font-semibold italic leading-[1.2] tracking-wider">
-      Quality, consistent and accessible training for content creators and IT professionals
-    </div>
-  </div>
-)
+  )
+}

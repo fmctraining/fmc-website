@@ -3,12 +3,21 @@ import { Document } from '@/app/Document'
 import { NotFound } from './404'
 import { Page } from './Page'
 import { Home } from './Home'
+import { Course } from './Course'
+import { CourseGroup } from './CourseGroup'
 
 export async function contentTheme({ ctx, request }: RequestInfo) {
-  if (ctx.pageContext?.pageData) {
-    switch (ctx.pageContext.pathname) {
-      case '/':
+  const pageData = ctx.pageContext?.pageData
+  const layout = pageData?.attrs?.layout
+  if (pageData) {
+    switch (layout) {
+      case 'home':
         return <Home />
+      case 'vendor':
+      case 'group':
+        return <CourseGroup />
+      case 'course':
+        return <Course />
       default:
         return <Page />
     }
