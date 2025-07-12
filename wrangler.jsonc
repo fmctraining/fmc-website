@@ -11,7 +11,7 @@
     "GH_OWNER": "fmctraining",
     "GH_REPO": "website-content",
     "GH_BRANCH": "main",
-    "GH_PATH": "content",
+    "GH_PATH": "",
     "GH_TEST": ""
   },
   // .dev.vars

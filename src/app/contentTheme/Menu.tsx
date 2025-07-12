@@ -22,25 +22,25 @@ export const Menu = () => {
         <div className="navbar-end text-[12px] xs:text-[14px] sm:text-base md:text-xl font-semibold flex items-center uppercase ">
           <a
             href="https://futuremedia-concepts.com/"
-            className="px-1 xs:px-4 sm:px-6 md:px-8 py-1 md:py-3 hidden lg:block  border-r border-gray-400 border-b-4 border-b-transparent hover:border-b-white"
+            className="px-1 xs:px-2 sm:px-6 md:px-8 py-1 md:py-3 hidden lg:block  border-r border-gray-400 border-b-4 border-b-transparent hover:border-b-white"
           >
             Home
           </a>
           <a
             href="/"
-            className="px-1 xs:px-4 sm:px-6 md:px-8 py-1 md:py-3 border-r border-gray-400 border-b-4 border-b-transparent hover:border-b-primary"
+            className="px-1 xs:px-2 sm:px-6 md:px-8 py-1 md:py-3 border-r border-gray-400 border-b-4 border-b-transparent hover:border-b-primary"
           >
             Courses
           </a>
           <a
             href="https://futuremedia-concepts.com/conferences/"
-            className="px-1 xs:px-4 sm:px-6 md:px-8 py-1 md:py-3 border-r border-gray-400 border-b-4 border-b-transparent hover:border-b-secondary"
+            className="px-1 xs:px-2 sm:px-6 md:px-8 py-1 md:py-3 border-r border-gray-400 border-b-4 border-b-transparent hover:border-b-secondary"
           >
             Conferences
           </a>
           <a
             href="https://futuremedia-concepts.com/certifications"
-            className="pl-1 xs:px-4 sm:px-6 md:px-8 py-1 md:py-3 border-b-4 border-b-transparent hover:border-b-accent"
+            className="pl-1 xs:px-2 sm:px-6 md:px-8 py-1 md:py-3 border-b-4 border-b-transparent hover:border-b-accent"
           >
             Certifications
           </a>

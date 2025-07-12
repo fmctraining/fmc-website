@@ -42,6 +42,7 @@ async function getSourceText(path: string, noCache: boolean = false): Promise<st
       }
     )
   }
+  console.log('getSourceText', path, source, resp.status)
   if (!resp.ok) return null
   const text = await resp.text()
   sourceMemo[path] = text
