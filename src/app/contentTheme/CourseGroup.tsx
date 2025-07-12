@@ -7,7 +7,7 @@ export function CourseGroup() {
   const pageData = r.ctx.pageContext?.pageData
   return (
     <ContentLayout>
-      <h1>{pageData?.attrs?.name}</h1>
+      <h1>{pageData?.attrs?.name} Courses</h1>
       <ContentHtml />
       <DirList />
     </ContentLayout>
