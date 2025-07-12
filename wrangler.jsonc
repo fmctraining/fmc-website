@@ -8,8 +8,8 @@
     "enabled": true
   },
   "vars": {
-    "GH_OWNER": "jldec",
-    "GH_REPO": "jldec-me",
+    "GH_OWNER": "fmctraining",
+    "GH_REPO": "website-content",
     "GH_BRANCH": "main",
     "GH_PATH": "content",
     "GH_TEST": ""

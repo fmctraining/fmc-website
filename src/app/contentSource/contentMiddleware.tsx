@@ -50,8 +50,8 @@ export const contentMiddleware = ({ ignore }: contentMiddlewareOptions = {}) => 
       siteData: '/' in pagePaths ? (await getPageData('/'))?.attrs : undefined,
       pageData: pathname in pagePaths ? (await getPageData(pathname, noCache)) || undefined : undefined,
       dirData:
-        pathname.startsWith('/blog/') && '/blog' in pagePaths
-          ? (await getPageData('/blog'))?.dir?.find((p) => p.path === pathname)
+        pathname.startsWith('/press/') && '/press' in pagePaths
+          ? (await getPageData('/press'))?.dir?.find((p) => p.path === pathname)
           : undefined
     }
     if (url.searchParams.has('json')) return Response.json(pageContext)
