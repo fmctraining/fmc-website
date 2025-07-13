@@ -47,18 +47,22 @@ export const Menu = () => {
         </div>
       </div>
       {isHome ? (
-        <div className="bg-primary text-white mt-2 sm:mt-4 md:mt-6 mx-2 px-6 py-1 text-center clip-banner text-[18px] md:text-[22px] font-semibold italic leading-[1.2] tracking-wider">
+        <div className="bg-primary text-white mt-2 sm:mt-4 md:mt-6 -mx-2 px-6 py-2 text-center clip-banner text-[14px] xs:text-[18px] md:text-[22px] font-semibold italic leading-[1.2] tracking-wider">
           Quality, consistent and accessible training for content creators and IT professionals
         </div>
       ) : (
-        <div className="breadcrumbs text-sm sm:text-base bg-primary px-2 py-1 mt-1 border-t border-primary">
+        <div className="breadcrumbs w-fit mt-2 py-2 px-6 rounded-full bg-primary border-4 border-white">
           <ul>
             <li key="0">
-              <a href="/">Courses Home</a>
+              <a href="/" className="decoration-2 underline-offset-8">
+                Courses Home
+              </a>
             </li>
             {crumbs?.map((crumb, index) => (
               <li key={index}>
-                <a href={crumb.path}>{crumb.name}</a>
+                <a href={crumb.path} className="decoration-2 underline-offset-8">
+                  {crumb.name}
+                </a>
               </li>
             ))}
           </ul>
