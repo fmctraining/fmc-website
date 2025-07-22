@@ -11,7 +11,8 @@ export function Home() {
   return (
     <ContentLayout>
       <ContentHtml />
-      <div className="flex flex-wrap justify-center gap-8">
+      <h1 className="max-w-4xl m-auto text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Future Media Courses</h1>
+      <div className="flex flex-wrap justify-center gap-8 mt-8">
         {pageData?.attrs?.classes?.map((classData, index) => (
           <div
             className={`w-full ms:w-sm border-4 rounded-2xl ${borderColors[index % borderColors.length]} p-4`}
