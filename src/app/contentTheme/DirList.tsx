@@ -3,17 +3,13 @@ import { requestInfo as r } from 'rwsdk/worker'
 export function DirList() {
   const pageData = r.ctx.pageContext?.pageData
   return pageData?.dir ? (
-    <ul>
+    <ul className="max-w-3xl m-auto">
       {pageData.dir.map((d) => (
-        <p key={d.path} className='leading-8'>
+        <li key={d.path} className="triangle-yellow text-lg py-1 my-4">
           <a href={d.path} className="hover:underline">
-            {d.path}
-          </a>{' '}
-          <a href={d.path + '?json='} className="text-blue-500 hover:underline">
-            json
-          </a>{' '}
-          <span className="text-xs text-gray-500">{d.attrs?.layout || 'no-layout'}</span>
-        </p>
+            {d.attrs?.name || d.attrs?.title || d.path}
+          </a>
+        </li>
       ))}
     </ul>
   ) : null

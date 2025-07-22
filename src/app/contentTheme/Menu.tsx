@@ -6,8 +6,8 @@ export const Menu = () => {
   const path = new URL(r.request.url).pathname
   const isHome = path === '/'
   return (
-    <div className="p-1 xxs:p-2 md:p-4">
-      <div className={'navbar min-h-auto pb-0 pr-0' + (isHome ? '' : ' items-baseline')}>
+    <div className="p-1 xxs:px-2 xxs:pt-2 md:px-[25px] md:pt-[25px] max-w-[1250px] mx-auto mb-2 md:mb-3">
+      <div className={'navbar min-h-auto p-0 items-start'}>
         <div className="navbar-start">
           <a href="/">
             <img
@@ -15,7 +15,7 @@ export const Menu = () => {
               alt="FMC Logo"
               width="412"
               height={isHome ? '256' : '150'}
-              className="w-[40px] -ml-1 xxs:ml-0 xs:w-[80px] sm:w-[120px] lg:w-[162px]"
+              className="w-[40px] xxs:w-[56px] xs:w-[80px] sm:w-[122px] lg:w-[162px]"
             />
           </a>
         </div>
@@ -46,28 +46,6 @@ export const Menu = () => {
           </a>
         </div>
       </div>
-      {isHome ? (
-        <div className="bg-primary text-white mt-2 sm:mt-4 md:mt-6 -mx-2 px-6 py-2 text-center clip-banner text-[14px] xs:text-[18px] md:text-[22px] font-semibold italic leading-[1.2] tracking-wider">
-          Quality, consistent and accessible training for content creators and IT professionals
-        </div>
-      ) : (
-        <div className="breadcrumbs w-fit mt-2 py-2 px-6 rounded-full bg-primary border-4 border-white">
-          <ul>
-            <li key="0">
-              <a href="/" className="decoration-2 underline-offset-8">
-                Courses Home
-              </a>
-            </li>
-            {crumbs?.map((crumb, index) => (
-              <li key={index}>
-                <a href={crumb.path} className="decoration-2 underline-offset-8">
-                  {crumb.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   )
 }

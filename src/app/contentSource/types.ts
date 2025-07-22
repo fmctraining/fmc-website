@@ -9,6 +9,7 @@ export type ContentPageContext = {
 export type DirData = {
   path: string
   attrs?: Frontmatter
+  dir?: DirData[]
   next?: Navlink
   prev?: Navlink
 }
@@ -25,6 +26,17 @@ export type PageData = {
   html: string
   dir?: DirData[]
   crumbs: ParentData[]
+}
+
+export type classesData = {
+  name: string
+  href: string
+  groups: groupData[]
+}
+
+export type groupData = {
+  name: string
+  href: string
 }
 
 export interface Frontmatter {
@@ -49,8 +61,18 @@ export interface Frontmatter {
   favicon?: string
   name?: string
   pathname?: string
+  classes?: classesData[]
+  footer?: Footer
+  dirDepth?: number
   [key: string]: unknown
 }
+
+export interface Footer {
+  links: Navlink[]
+  social?: Navlink[]
+  terms?: Navlink[]
+}
+
 export interface Navlink {
   href: string
   text: string

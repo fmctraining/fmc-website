@@ -13,7 +13,7 @@ export type contentMiddlewareOptions = {
 
 export const contentMiddleware = ({ ignore }: contentMiddlewareOptions = {}) => {
   return async ({ request, ctx }: RequestInfo): Promise<Response | void> => {
-    const noCache =
+    const noCacheRead =
       request.headers.get('cache-control')?.includes('no-cache') || request.headers.get('pragma')?.includes('no-cache')
     const url = new URL(request.url)
     const pathname = url.pathname
@@ -30,9 +30,9 @@ export const contentMiddleware = ({ ignore }: contentMiddlewareOptions = {}) => 
     // serve static content from manifest
     // only bypass manifest cache when reloading the home page
     const isHome = pathname === '/'
-    const manifest = await getManifest(noCache && isHome)
+    const manifest = await getManifest(noCacheRead && isHome)
     if (manifest.includes(pathname)) {
-      const resp = await getStatic(pathname, noCache)
+      const resp = await getStatic(pathname, noCacheRead)
       if (resp) {
         console.log('static', pathname)
         return resp
@@ -47,12 +47,12 @@ export const contentMiddleware = ({ ignore }: contentMiddlewareOptions = {}) => 
     const pagePaths = await getPagePaths()
     const pageContext: ContentPageContext = {
       pathname,
-      siteData: '/' in pagePaths ? (await getPageData('/'))?.attrs : undefined,
-      pageData: pathname in pagePaths ? (await getPageData(pathname, noCache)) || undefined : undefined,
+      pageData: pathname in pagePaths ? (await getPageData({ path: pathname, noCacheRead })) || undefined : undefined,
       dirData:
         pathname.startsWith('/press/') && '/press' in pagePaths
-          ? (await getPageData('/press'))?.dir?.find((p) => p.path === pathname)
-          : undefined
+          ? (await getPageData({ path: '/press' }))?.dir?.find((p) => p.path === pathname)
+          : undefined,
+      siteData: '/' in pagePaths ? (await getPageData({ path: '/' }))?.attrs : undefined
     }
     if (url.searchParams.has('json')) return Response.json(pageContext)
     ctx.pageContext = pageContext
