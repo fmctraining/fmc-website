@@ -12,24 +12,27 @@ export function zapDirCache() {
 
 // fetch DirData for [children] under a dirpath
 // returns undefined for non-dirpaths
-// never called with noCache
-// prevent cascade by calling getPageData with noDir: true
-export async function getDirData(dirPath: string, sortBy?: string, reverse?: boolean): Promise<DirData[] | undefined> {
+// this cascades down the hierarchy for pages with attrs.depth > 0
+export async function getDirData(opts: {
+  dirPath: string
+  dirDepth?: number
+  sortBy?: string
+  reverse?: boolean
+}): Promise<DirData[] | undefined> {
   // console.log('getDirData', dirPath, sortBy)
   const dirs = dirsMemo || (await getDirs())
-  const dir = dirs[dirPath]
+  const dir = dirs[opts.dirPath]
   if (!dir) return undefined
 
-  // TODO: throttle and detect cycles
   const dirPromises = dir?.map(async (pageName): Promise<DirData> => {
-    const pagePath = dirPath + (dirPath === '/' ? '' : '/') + pageName
-    const dirPage = await getPageData(pagePath, false, true)
-    return { path: pagePath, attrs: dirPage?.attrs }
+    const pagePath = opts.dirPath + (opts.dirPath === '/' ? '' : '/') + pageName
+    const dirPage = await getPageData({ path: pagePath, dirDepth: opts.dirDepth })
+    return { path: pagePath, attrs: dirPage?.attrs, dir: dirPage?.dir }
   })
   const dirData = await Promise.all(dirPromises || [])
-  if (sortBy) {
-    dirData.sort(sortFn(sortBy))
-    if (reverse) dirData.reverse()
+  if (opts.sortBy) {
+    dirData.sort(sortFn(opts.sortBy))
+    if (opts.reverse) dirData.reverse()
   }
   // sort before populating next/prev
   for (let i = 0; i < dirData.length; i++) {
@@ -42,7 +45,7 @@ export async function getDirData(dirPath: string, sortBy?: string, reverse?: boo
 function linkify(d: DirData): Navlink {
   return {
     href: d.path,
-    text: d.attrs?.title ?? ''
+    text: d.attrs?.name ?? d.attrs?.title ?? d.path
   }
 }
 

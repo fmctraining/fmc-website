@@ -50,13 +50,12 @@ async function getSourceText(path: string, noCache: boolean = false): Promise<st
 }
 
 // get pathname for parent pages not including '/'
-// uses noDir to avoid cycles
 async function getParentData(path: string): Promise<ParentData[]> {
   const data: ParentData[] = []
   while (true) {
     path = path.slice(0, path.lastIndexOf('/'))
     if (path.length <= 1) break
-    const parentPage = await getPageData(path, false, true)
+    const parentPage = await getPageData({ path, noDir: true })
     if (parentPage?.attrs.pathname) {
       data.unshift({ path, name: parentPage.attrs.pathname })
     }
@@ -64,29 +63,47 @@ async function getParentData(path: string): Promise<ParentData[]> {
   return data
 }
 
+function max(a: number, b: number) {
+  return a > b ? a : b
+}
+
 // Return unstyled HTML content for a page
 // Fetches and parses markdown from source, if not cached.
-export async function getPageData(
-  path: string,
-  noCache: boolean = false,
-  noDir: boolean = false
-): Promise<PageData | null> {
-  const isHome = path === '/'
+export async function getPageData(opts: {
+  path: string
+  noCacheRead?: boolean
+  noDir?: boolean
+  dirDepth?: number
+}): Promise<PageData | null> {
+  let { path, noCacheRead = false, noDir = false, dirDepth = 0 } = opts
+  const isHome = opts.path === '/'
 
-  if (!noCache) {
+  if (!noCacheRead) {
     if (isHome && homePage) return homePage
-    const cachedContent = await env.PAGEDATA_CACHE.get(path)
-    if (cachedContent !== null) return JSON.parse(cachedContent) as PageData
+    const cachedContent = await env.PAGEDATA_CACHE.get(opts.path)
+    if (cachedContent !== null) {
+      console.log('getPageData: from cache', opts.path)
+      return JSON.parse(cachedContent) as PageData
+    }
   }
 
-  const sourceText = await getSourceText(path, noCache)
+  const sourceText = await getSourceText(opts.path, noCacheRead)
   if (!sourceText) return null
   const parsedFrontmatter = parseFrontmatter(sourceText)
   const attrs = parsedFrontmatter.attrs
-  const dirData = noDir ? undefined : await getDirData(path, attrs.sortby || 'sort', attrs.sortreverse)
-  const parentData = await getParentData(path)
+  dirDepth = max(attrs.dirDepth ?? 0, dirDepth)
+  const dirData =
+    dirDepth > 0 && !noDir
+      ? await getDirData({
+          dirPath: opts.path,
+          dirDepth: max(dirDepth - 1, 0),
+          sortBy: attrs.sortby || 'sort',
+          reverse: attrs.sortreverse
+        })
+      : undefined
+  const parentData = await getParentData(opts.path)
   const pageData = {
-    path,
+    path: opts.path,
     attrs,
     md: parsedFrontmatter.body,
     html: attrs.error
@@ -98,13 +115,13 @@ export async function getPageData(
     crumbs: parentData
   }
 
-  const pageHasNoDirs = (await getDirs())[path]?.length === 0
-  if (!noDir || pageHasNoDirs) {
-    requestInfo.cf.waitUntil(env.PAGEDATA_CACHE.put(path, JSON.stringify(pageData)))
+  if (dirDepth === 0 || !noDir) {
+    requestInfo.cf.waitUntil(env.PAGEDATA_CACHE.put(opts.path, JSON.stringify(pageData)))
+    if (isHome) {
+      homePage = pageData
+    }
   }
-  if ((!noDir || pageHasNoDirs) && isHome) {
-    homePage = pageData
-  }
+  console.log('getPageData: from source', opts.path)
   return pageData
 }
 

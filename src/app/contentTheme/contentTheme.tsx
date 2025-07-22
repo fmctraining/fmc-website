@@ -5,6 +5,7 @@ import { Page } from './Page'
 import { Home } from './Home'
 import { Course } from './Course'
 import { CourseGroup } from './CourseGroup'
+import { Vendor } from './Vendor'
 
 export async function contentTheme({ ctx, request }: RequestInfo) {
   const pageData = ctx.pageContext?.pageData
@@ -14,6 +15,7 @@ export async function contentTheme({ ctx, request }: RequestInfo) {
       case 'home':
         return <Home />
       case 'vendor':
+        return <Vendor />
       case 'group':
         return <CourseGroup />
       case 'course':

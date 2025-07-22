@@ -17,6 +17,7 @@
   "dependencies": {
     "@std/front-matter": "jsr:^1.0.9",
     "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
     "rwsdk": "0.1.10",
     "tailwind-merge": "^3.3.1"
   },
