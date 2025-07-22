@@ -64,6 +64,7 @@ export interface Frontmatter {
   classes?: classesData[]
   footer?: Footer
   dirDepth?: number
+  'meta-description'?: string
   [key: string]: unknown
 }
 

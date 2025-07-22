@@ -5,9 +5,9 @@ import { getDirData, getDirs } from './get-dirs'
 import { IS_DEV } from 'rwsdk/constants'
 import { env } from 'cloudflare:workers'
 import { requestInfo } from 'rwsdk/worker'
-import pLimit from 'p-limit';
+import pLimit from 'p-limit'
 
-const limit = pLimit(10);
+const limit = pLimit(10)
 
 // memoize to speed up homeContent().attrs for Nav
 let homePage: PageData | null = null
