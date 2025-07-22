@@ -13,15 +13,33 @@ export function CourseGroup() {
       <ContentHtml />
       <div className="max-w-3xl mx-auto">
         <h1 className="text-3xl sm:text-4xl md:text-5xl">{pageData?.attrs?.name || pageData?.attrs?.title} Courses</h1>
-        <ul className={`rounded-2xl mt-2 ${textColors[2]} italic px-3 py-2 text-xl`}>
-          {pageData?.dir?.map((courseData) => (
-            <li className="triangle-pink py-1" key={courseData.path}>
-              <a href={courseData.path} className="hover:underline decoration-2">
-                {courseData.attrs?.name || courseData.attrs?.title || courseData.path}
-              </a>
-            </li>
+        <div className="flex flex-col gap-6 mt-8">
+          {pageData?.dir?.map((courseData, index) => (
+            <a
+              href={courseData.path}
+              className={`block border-4 rounded-2xl hover:bg-black/30 ${borderColors[index % borderColors.length]} p-6`}
+              key={courseData.path}
+            >
+              <div className="flex items-start gap-4">
+                {courseData.attrs?.image && (
+                  <img
+                    src={courseData.attrs.image}
+                    alt={courseData.attrs?.name || courseData.attrs?.title || courseData.path}
+                    className="w-16 h-16 object-cover rounded flex-shrink-0"
+                  />
+                )}
+                <div className="flex-1">
+                  <h3 className={`text-xl font-bold ${textColors[index % textColors.length]} mb-2`}>
+                    {courseData.attrs?.name || courseData.attrs?.title || courseData.path}
+                  </h3>
+                  {courseData.attrs?.['meta-description'] && (
+                    <p className="text-gray-300 text-sm">{courseData.attrs['meta-description']}</p>
+                  )}
+                </div>
+              </div>
+            </a>
           ))}
-        </ul>
+        </div>
       </div>
     </ContentLayout>
   )

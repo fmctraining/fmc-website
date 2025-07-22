@@ -15,7 +15,7 @@ export function Home() {
       <div className="flex flex-wrap justify-center gap-8 mt-8">
         {pageData?.attrs?.classes?.map((classData, index) => (
           <div
-            className={`w-full ms:w-sm border-4 rounded-2xl ${borderColors[index % borderColors.length]} p-4`}
+            className={`w-full ms:w-sm border-4 rounded-2xl hover:bg-black/30 ${borderColors[index % borderColors.length]} p-4`}
             key={index}
           >
             <h2
