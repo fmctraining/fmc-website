@@ -5,6 +5,9 @@ import { getDirData, getDirs } from './get-dirs'
 import { IS_DEV } from 'rwsdk/constants'
 import { env } from 'cloudflare:workers'
 import { requestInfo } from 'rwsdk/worker'
+import pLimit from 'p-limit';
+
+const limit = pLimit(10);
 
 // memoize to speed up homeContent().attrs for Nav
 let homePage: PageData | null = null
@@ -19,6 +22,10 @@ async function filePath(path: string): Promise<string> {
   return `${path}.md`
 }
 
+async function queuedFetch(url: string, options: RequestInit): Promise<Response> {
+  return limit(() => fetch(url, options))
+}
+
 async function getSourceText(path: string, noCache: boolean = false): Promise<string | null> {
   if (!noCache && path in sourceMemo) return sourceMemo[path]
   const filepath = await filePath(path)
@@ -30,7 +37,7 @@ async function getSourceText(path: string, noCache: boolean = false): Promise<st
     resp = await fetch(`${origin}/${source}${filepath}`)
   } else {
     // https://docs.github.com/en/rest/repos/contents
-    resp = await fetch(
+    resp = await queuedFetch(
       `https://api.github.com/repos/${env.GH_OWNER}/${env.GH_REPO}/contents/${env.GH_PATH}${filepath}?ref=${env.GH_BRANCH}`,
       {
         headers: {
