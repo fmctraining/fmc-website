@@ -7,7 +7,7 @@ export function NotFound() {
   return (
     <ContentLayout>
       <div className="prose prose-invert mx-auto max-w-3xl">
-        <h1 id="404" className="text-4xl">
+        <h1 id="404" className="text-3xl sm:text-4xl md:text-5xl">
           404
         </h1>
         <p>Page not found</p>

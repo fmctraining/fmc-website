@@ -12,7 +12,7 @@ export function CourseGroup() {
     <ContentLayout>
       <ContentHtml />
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl">{pageData?.attrs?.name || pageData?.attrs?.title} Courses</h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl">{pageData?.attrs?.name || pageData?.attrs?.title} Courses</h1>
         <ul className={`rounded-2xl mt-2 ${textColors[2]} italic px-3 py-2 text-xl`}>
           {pageData?.dir?.map((courseData) => (
             <li className="triangle-pink py-1" key={courseData.path}>

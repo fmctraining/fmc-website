@@ -7,7 +7,7 @@ export function Course() {
   const courseName = pageData?.attrs?.name || pageData?.attrs?.title || pageData?.path
   return (
     <ContentLayout>
-      <h1 className="max-w-3xl m-auto text-4xl">{courseName}</h1>
+      <h1 className="max-w-4xl m-auto text-3xl sm:text-4xl md:text-5xl">{courseName}</h1>
       <ContentHtml />
     </ContentLayout>
   )

@@ -10,7 +10,7 @@ export function Vendor() {
 
   return (
     <ContentLayout>
-      <h1 className="text-4xl">{pageData?.attrs?.pathname || pageData?.attrs?.name} Courses</h1>
+      <h1 className="text-3xl sm:text-4xl md:text-5xl">{pageData?.attrs?.pathname || pageData?.attrs?.name} Courses</h1>
       <ContentHtml />
       <div className="flex flex-col items-center gap-8">
         {pageData?.dir?.map((groupData, index) => (

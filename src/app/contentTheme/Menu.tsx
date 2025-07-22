@@ -15,7 +15,7 @@ export const Menu = () => {
               alt="FMC Logo"
               width="412"
               height={isHome ? '256' : '150'}
-              className="w-[40px] xxs:w-[56px] xs:w-[80px] sm:w-[122px] lg:w-[162px]"
+              className="w-[40px] mt-[3px] xxs:mt-0 xxs:w-[56px] xs:w-[80px] sm:w-[122px] lg:w-[162px]"
             />
           </a>
         </div>

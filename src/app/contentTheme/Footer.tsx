@@ -4,15 +4,15 @@ import { frontmatterIcons } from './icons'
 export function Footer() {
   const footer = r.ctx.pageContext?.siteData?.footer
   return (
-    <footer className="max-w-6xl mx-auto my-32 flex flex-col items-center gap-4">
+    <footer className="max-w-6xl px-2 mx-auto mt-32 mb-4 flex flex-col items-center gap-4">
       <img
         src="/images/fmc_footer_white.png"
         alt="Future Media Courses Conferences Certifications"
         width="1344"
         height="364"
-        className="w-[400px]"
+        className="w-[400px] max-w-[80vw]"
       />
-      <div className="flex gap-4">
+      <div className="flex flex-wrap justify-center gap-4">
         {footer?.links.map((link) => (
           <a
             href={link.href}
@@ -63,12 +63,12 @@ export function Footer() {
           </a>
         ))}
       </div>
-      <div className="text-sm max-w-4xl">
+      <div className="text-sm text-center">
         If you are vision-impaired or have some other disability under the Americans with Disabilities Act or a similar
         law, and you wish to discuss potential accommodations related to using the Future Media Concepts website, please
         contact joeln@fmctraining.com
       </div>
-      <div className="text-sm">© 2024 Future Media Concepts. All rights reserved. Established 1994.</div>
+      <div className="text-sm text-center">© 2024 Future Media Concepts. All rights reserved. Established 1994.</div>
     </footer>
   )
 }
