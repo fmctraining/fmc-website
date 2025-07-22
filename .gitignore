@@ -5,5 +5,4 @@ dist
 .dev.vars*
 .wrangler
 
-/public/images
 /content/
