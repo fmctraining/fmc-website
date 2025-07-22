@@ -8,7 +8,7 @@ export function Breadcrumbs() {
       <li key="0" className="">
         <a
           href="/"
-          className="inline-block decoration-2 hover:underline underline-offset-8 py-2 px-6 rounded-full bg-primary border-4 border-white"
+          className="inline-block decoration-2 hover:underline underline-offset-8 py-2 px-3 xs:px-6 rounded-full bg-primary border-4 border-white"
         >
           Courses Home
         </a>
@@ -17,7 +17,7 @@ export function Breadcrumbs() {
         <li key={crumb.path} className="">
           <a
             href={crumb.path}
-            className="inline-block decoration-2 hover:underline underline-offset-8 py-2 px-6 rounded-full bg-primary border-4 border-white"
+            className="inline-block decoration-2 hover:underline underline-offset-8 py-2 px-3 xs:px-6 rounded-full bg-primary border-4 border-white"
           >
             {crumb.name}
           </a>
