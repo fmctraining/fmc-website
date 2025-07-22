@@ -23,6 +23,7 @@ export function Footer() {
           </a>
         ))}
       </div>
+      <hr className="w-full mt-8 border-gray-500" />
       <div className="mt-4">Sign up for our newsletter!</div>
       <div
         className="w-full max-w-xl mx-auto"
