@@ -4,6 +4,7 @@ export type ContentPageContext = {
   pageData?: PageData
   siteData?: Frontmatter
   dirData?: DirData
+  courseData?: CourseData[]
 }
 
 export type DirData = {
@@ -28,13 +29,13 @@ export type PageData = {
   crumbs: ParentData[]
 }
 
-export type classesData = {
+export type ClassesData = {
   name: string
   href: string
-  groups: groupData[]
+  groups: GroupData[]
 }
 
-export type groupData = {
+export type GroupData = {
   name: string
   href: string
 }
@@ -61,7 +62,7 @@ export interface Frontmatter {
   favicon?: string
   name?: string
   pathname?: string
-  classes?: classesData[]
+  classes?: ClassesData[]
   footer?: Footer
   dirDepth?: number
   'meta-description'?: string
@@ -91,4 +92,23 @@ export interface Splash {
 export interface Redirect {
   redirect: string
   status?: number
+}
+
+export interface CourseData {
+  page: string
+  courseid: string
+  price: string
+  name: string
+  groupname: string
+  categoryname: string
+  vendorname: string
+  locationprice?: string
+  duration?: string
+  sched?: {
+    l: string
+    s: {
+      d: string
+      k?: string
+    }[]
+  }[]
 }

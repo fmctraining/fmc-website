@@ -6,6 +6,7 @@ import { getRedirects } from './redirects'
 import { type ContentPageContext } from './types'
 import { type RequestInfo } from 'rwsdk/worker'
 import { match } from '@/lib/match'
+import { getCourses } from './courses'
 
 export type contentMiddlewareOptions = {
   ignore?: string | string[]
@@ -45,6 +46,8 @@ export const contentMiddleware = ({ ignore }: contentMiddlewareOptions = {}) => 
       return Response.redirect(url.origin + redirects[pathname].redirect + search, redirects[pathname].status)
     }
     const pagePaths = await getPagePaths()
+    const courseData = await getCourses(noCacheRead && isHome)
+
     const pageContext: ContentPageContext = {
       pathname,
       pageData: pathname in pagePaths ? (await getPageData({ path: pathname, noCacheRead })) || undefined : undefined,
@@ -52,7 +55,8 @@ export const contentMiddleware = ({ ignore }: contentMiddlewareOptions = {}) => 
         pathname.startsWith('/press/') && '/press' in pagePaths
           ? (await getPageData({ path: '/press' }))?.dir?.find((p) => p.path === pathname)
           : undefined,
-      siteData: '/' in pagePaths ? (await getPageData({ path: '/' }))?.attrs : undefined
+      siteData: '/' in pagePaths ? (await getPageData({ path: '/' }))?.attrs : undefined,
+      courseData
     }
     if (url.searchParams.has('json')) return Response.json(pageContext)
     ctx.pageContext = pageContext
