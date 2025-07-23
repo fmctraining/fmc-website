@@ -22,7 +22,7 @@ export function Home() {
               className={`text-3xl ${textColors[index % textColors.length]} italic uppercase tracking-wider font-bold`}
             >
               {classData.href ? (
-                <a href={classData.href} className="hover:underline decoration-2">
+                <a href={classData.href} className="block hover:underline decoration-2">
                   {classData.name}
                 </a>
               ) : (
@@ -34,7 +34,7 @@ export function Home() {
             >
               {classData.groups.map((groupData) => (
                 <li className="triangle-pink py-1" key={groupData.href}>
-                  <a href={groupData.href} className="hover:underline decoration-2">
+                  <a href={groupData.href} className="block hover:underline decoration-2">
                     {groupData.name}
                   </a>
                 </li>

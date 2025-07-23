@@ -4,7 +4,7 @@ import { render, route } from 'rwsdk/router'
 
 import type { ContentPageContext } from './app/contentSource/types'
 import { contentMiddleware } from './app/contentSource/contentMiddleware'
-import { contentTheme } from './app/contentTheme/contentTheme'
+import { ContentTheme } from './app/contentTheme/ContentTheme'
 import { contentApiRoutes } from './app/contentSource/api-routes'
 
 export type AppContext = {
@@ -14,7 +14,7 @@ export type AppContext = {
 const app = defineApp([
   contentMiddleware({ ignore: ['/api/', '/server/', '/admin/'] }),
   contentApiRoutes,
-  render(Document, [route('*', [contentTheme])])
+  render(Document, [route('*', [ContentTheme])])
 ])
 
 export default {
