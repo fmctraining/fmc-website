@@ -29,7 +29,7 @@ export async function getCourses(noCache: boolean = false): Promise<CourseData[]
   if (resp.ok) {
     // TODO: validate json
     courses = (await resp.json()) as CourseData[]
-    courses.forEach(c => {
+    courses.forEach((c) => {
       c.duration = formatDuration(c.duration)
     })
     console.log('getCourses', url, 'ok', courses.length, 'courses')
@@ -49,7 +49,5 @@ export async function getCourses(noCache: boolean = false): Promise<CourseData[]
 function formatDuration(d?: string) {
   if (!d) return undefined
   const num = Number(d)
-  return (num > 1 || num < 1) ? d + ' days'
-       : num == 1  ? '1 day'
-       : d;
+  return num > 1 || num < 1 ? d + ' days' : num == 1 ? '1 day' : d
 }

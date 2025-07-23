@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "vite dev --force",
-    "test": "tsc && vitest run && prettier --check .",
+    "test": "tsc && prettier --check . && vitest run",
     "build": "vite build",
     "preview": "vite build && vite preview",
     "format": "prettier --write .",

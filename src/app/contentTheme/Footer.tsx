@@ -14,9 +14,7 @@ export function Footer() {
         className="w-[400px] max-w-[80vw]"
       />
       <div className="flex flex-wrap justify-center gap-4">
-        {footer?.links.map((link) => (
-          <ButtonLink href={link.href} text={link.text} key={link.href} />
-        ))}
+        {footer?.links.map((link) => <ButtonLink href={link.href} text={link.text} key={link.href} />)}
       </div>
       <hr className="w-full mt-8 border-gray-500" />
       <div className="mt-4">Sign up for our newsletter!</div>
