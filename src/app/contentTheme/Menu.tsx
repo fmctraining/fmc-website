@@ -19,7 +19,7 @@ export const Menu = () => {
             />
           </a>
         </div>
-        <div className="navbar-end text-[12px] xs:text-[14px] sm:text-base md:text-xl font-semibold flex items-center uppercase ">
+        <div className="navbar-end xs:pt-1 sm:pt-2 text-[12px] xs:text-[14px] sm:text-base md:text-xl font-semibold flex items-center uppercase ">
           <a
             href="https://futuremedia-concepts.com/"
             className="px-1 xs:px-2 sm:px-6 md:px-8 py-1 md:py-3 hidden lg:block  border-r border-gray-400 border-b-4 border-b-transparent hover:border-b-white"
