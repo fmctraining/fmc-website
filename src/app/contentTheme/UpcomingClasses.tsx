@@ -24,13 +24,27 @@ export function UpcomingClasses() {
             {byGroup[groupname].map((course) => (
               <div key={course.courseid} className="">
                 <h4 className="mb-0!">
-                  {course.name}
+                  <a href={course.page} className="no-underline hover:underline decoration-2 font-semibold text-accent">
+                    {course.name}
+                  </a>
                   {course.duration && <span className="ml-2 text-sm font-normal text-gray-300">{course.duration}</span>}
                 </h4>
                 {course.sched &&
-                  course.sched.map((s) => (
-                    <div key={s.l}>
-                      <span className="text-sm">{s.l}:</span> {s.s.map((s) => s.d).join(', ')}
+                  course.sched.map((location) => (
+                    <div key={location.l}>
+                      <span className="mr-2">{location.l}:</span>{' '}
+                      {location.s.map((schedule, index) => (
+                        <span key={index}>
+                          <a
+                            href={course.page}
+                            className="text-sm text-slate-200 no-underline hover:underline decoration-2"
+                          >
+                            {schedule.d}
+                          </a>
+                          {schedule.k && <span className="text-sm"> {schedule.k}</span>}
+                          {index < location.s.length - 1 && ', '}
+                        </span>
+                      ))}
                     </div>
                   ))}
               </div>
