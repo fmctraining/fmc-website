@@ -8,7 +8,7 @@ import { CourseGroup } from './CourseGroup'
 import { Vendor } from './Vendor'
 import { UpcomingClasses } from './UpcomingClasses'
 
-export async function contentTheme({ ctx, request }: RequestInfo) {
+export async function ContentTheme({ ctx, request }: RequestInfo) {
   const pageData = ctx.pageContext?.pageData
   const layout = pageData?.attrs?.layout
   if (pageData) {
