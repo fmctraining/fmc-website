@@ -1,5 +1,6 @@
 import { requestInfo as r } from 'rwsdk/worker'
 import { frontmatterIcons } from './icons'
+import { ButtonLink } from './ButtonLink'
 
 export function Footer() {
   const footer = r.ctx.pageContext?.siteData?.footer
@@ -14,13 +15,7 @@ export function Footer() {
       />
       <div className="flex flex-wrap justify-center gap-4">
         {footer?.links.map((link) => (
-          <a
-            href={link.href}
-            className="hover:underline decoration-2 underline-offset-8 w-fit py-2 px-6 rounded-full bg-primary border-4 border-white"
-            key={link.href}
-          >
-            {link.text}
-          </a>
+          <ButtonLink href={link.href} text={link.text} />
         ))}
       </div>
       <hr className="w-full mt-8 border-gray-500" />
