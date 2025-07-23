@@ -6,6 +6,7 @@ import { Home } from './Home'
 import { Course } from './Course'
 import { CourseGroup } from './CourseGroup'
 import { Vendor } from './Vendor'
+import { UpcomingClasses } from './UpcomingClasses'
 
 export async function contentTheme({ ctx, request }: RequestInfo) {
   const pageData = ctx.pageContext?.pageData
@@ -20,6 +21,8 @@ export async function contentTheme({ ctx, request }: RequestInfo) {
         return <CourseGroup />
       case 'course':
         return <Course />
+      case 'location':
+        return <UpcomingClasses />
       default:
         return <Page />
     }
