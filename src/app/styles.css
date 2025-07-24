@@ -12,8 +12,8 @@
 }
 @import 'tailwindcss';
 @theme {
-  --breakpoint-xxs: 340px;
-  --breakpoint-xs: 440px;
+  --breakpoint-xxs: 375px;
+  --breakpoint-xs: 480px;
   --breakpoint-ms: 880px;
 }
 @plugin "@tailwindcss/typography";
