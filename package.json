@@ -19,6 +19,8 @@
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0",
     "p-limit": "^6.2.0",
+    "react": "0.0.0-experimental-3d14fcf0-20250724",
+    "react-dom": "0.0.0-experimental-3d14fcf0-20250724",
     "rwsdk": "0.1.26",
     "tailwind-merge": "^3.3.1"
   },
