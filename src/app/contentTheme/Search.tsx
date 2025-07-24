@@ -1,7 +1,7 @@
 'use client'
 
 import { Search as SearchIcon } from './icons'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 
 export function Search() {
   const modalRef = useRef<HTMLDialogElement>(null)
@@ -74,16 +74,31 @@ export function Search() {
     setResults(search(value))
   }
 
+  // Listen for Cmd+K to toggle search
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Cmd+K (Mac) or Ctrl+K (Windows/Linux)
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault()
+        toggleSearch()
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
   return (
     <div className="normal-case">
       <button
         className="px-1 xs:px-2 md:px-6 py-1 md:py-3 -mr-1 xs:-mr-2 md:-mr-6 border-b-4 border-transparent hover:border-primary cursor-pointer"
         onClick={toggleSearch}
+        title="Search (Cmd+K)"
       >
         <SearchIcon className="h-5 xs:h-6" />
       </button>
       <dialog ref={modalRef} className="modal">
         <div className="modal-box border-4 rounded-2xl border-white p-4 my-3 w-11/12 max-w-3xl h-11/12">
+          <h2 className="text-2xl font-bold mb-2">Future Media Courses</h2>
           <input
             type="text"
             ref={inputRef}
