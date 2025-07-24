@@ -43,7 +43,7 @@ export function Search() {
         modal.showModal()
         setTimeout(() => {
           inputRef.current?.focus()
-        }, 300)
+        }, 500)
       }
     }
   }
