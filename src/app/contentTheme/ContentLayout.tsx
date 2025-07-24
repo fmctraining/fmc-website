@@ -1,4 +1,3 @@
-import { unstable_ViewTransition as ViewTransition } from 'react'
 import { requestInfo as r } from 'rwsdk/worker'
 import { Menu } from './Menu'
 import { Metadata } from './Metadata'
@@ -6,6 +5,7 @@ import { HomeBanner } from './HomeBanner'
 import { Breadcrumbs } from './Breadcrumbs'
 import { Footer } from './Footer'
 import { ScrollToTop } from './ScrollToTop'
+import { Main } from './Main'
 
 export function ContentLayout({ children }: { children: React.ReactNode }) {
   const path = new URL(r.request.url).pathname
@@ -15,9 +15,7 @@ export function ContentLayout({ children }: { children: React.ReactNode }) {
       <Metadata />
       <Menu />
       {isHome ? <HomeBanner /> : <Breadcrumbs />}
-      <ViewTransition>
-        <main className="mx-2 min-h-[69vh]">{children}</main>
-      </ViewTransition>
+      <Main>{children}</Main>
       <Footer />
       <ScrollToTop />
     </div>
