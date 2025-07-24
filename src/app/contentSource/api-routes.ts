@@ -4,6 +4,7 @@ import { getRedirects, zapRedirectCache } from './redirects'
 import { env } from 'cloudflare:workers'
 import { requestInfo } from 'rwsdk/worker'
 import { route, prefix } from 'rwsdk/router'
+import { getCourses } from './courses'
 
 export const contentApiRoutes = prefix('/api', [
   route('/pagedata-cache', async () => {
@@ -44,6 +45,12 @@ export const contentApiRoutes = prefix('/api', [
   route('/manifest', async () => {
     if (requestInfo.request.method === 'GET') {
       return Response.json(await getManifest())
+    } else return Response.json({ error: 'unsupported method' }, { status: 405 })
+  }),
+
+  route('/courses', async () => {
+    if (requestInfo.request.method === 'GET') {
+      return Response.json(await getCourses())
     } else return Response.json({ error: 'unsupported method' }, { status: 405 })
   }),
 
