@@ -1,19 +1,40 @@
-"use client";
+'use client'
 
-import { useLayoutEffect } from "react";
+import { useLayoutEffect } from 'react'
 
 // https://discord.com/channels/679514959968993311/679514959968993476/1396963062111797328
 export function ScrollToTop() {
   useLayoutEffect(() => {
-    const observer = new MutationObserver(() => window.scrollTo(0, 0));
-    const main = document.querySelector("main");
+    let popStateWasCalled = false
 
-    if (main) {
-      observer.observe(main, { childList: true, subtree: true });
+    const observer = new MutationObserver(() => {
+      // avoid scrolling to top after popstate events
+      if (!popStateWasCalled) {
+        // TODO: remove console.log
+        console.log('scroll to top')
+        window.scrollTo(0, 0)
+      }
+      popStateWasCalled = false
+    })
+
+    function handlePopState() {
+      // TODO: remove console.log
+      console.log('popstate')
+      popStateWasCalled = true
     }
 
-    return () => observer.disconnect();
-  }, []);
+    const main = document.querySelector('main')
 
-  return null;
+    if (main) {
+      window.addEventListener('popstate', handlePopState)
+      observer.observe(main, { childList: true, subtree: true })
+    }
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState)
+      observer.disconnect()
+    }
+  }, [])
+
+  return null
 }
