@@ -17,8 +17,8 @@ export function Footer() {
       <div className="flex flex-wrap justify-center gap-4">
         {footer?.links.map((link) => <ButtonLink href={link.href} text={link.text} key={link.href} />)}
       </div>
-      <hr className="w-full mt-8 border-gray-500" />
-      <NewsletterForm />
+      {/* <hr className="w-full mt-8 border-gray-500" /> */}
+      {/* <NewsletterForm /> */}
       <hr className="w-full my-0 border-gray-500" />
       <div className="whitespace-pre-line text-center text-sm">{`FUTURE MEDIA CONCEPTS, INC.
         P.O. Box 1882
