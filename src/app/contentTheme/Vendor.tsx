@@ -21,14 +21,14 @@ export function Vendor() {
             <h2
               className={`text-3xl ${textColors[index % textColors.length]} italic uppercase tracking-wider font-bold`}
             >
-              <a href={groupData.path} className="hover:underline decoration-2">
+              <a href={groupData.path} className="hover:underline active:underline decoration-2">
                 {groupData.attrs?.name || groupData.attrs?.title || groupData.path}
               </a>
             </h2>
             <ul className={`rounded-2xl mt-2 ${textColors[index % textColors.length]} italic px-3 py-2 text-xl`}>
               {groupData.dir?.map((courseData) => (
                 <li className="triangle-pink py-1" key={courseData.path}>
-                  <a href={courseData.path} className="hover:underline decoration-2">
+                  <a href={courseData.path} className="hover:underline active:underline decoration-2">
                     {courseData.attrs?.name || courseData.attrs?.title || courseData.path}
                   </a>
                 </li>

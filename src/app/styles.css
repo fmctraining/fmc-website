@@ -30,12 +30,16 @@
   --color-accent: #f19200; /* light-orangy */
 }
 
-a {
-  transition: transform 100ms; /* Transition for transform property over 75 milliseconds */
+a:active {
+  transform: scale(0.99);
 }
 
-a:active {
-  transform: scale(0.96); /* Scale down to 96% when active */
+.prose a:active {
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  transform: scale(1.03);
 }
 
 .prose ul > li::marker {

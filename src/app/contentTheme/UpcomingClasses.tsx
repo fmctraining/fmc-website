@@ -24,7 +24,10 @@ export function UpcomingClasses() {
             {byGroup[groupname].map((course) => (
               <div key={course.courseid} className="">
                 <h4 className="mb-0!">
-                  <a href={course.page} className="no-underline hover:underline decoration-2 font-semibold text-accent">
+                  <a
+                    href={course.page}
+                    className="inline-block no-underline hover:underline active:underline decoration-2 font-semibold text-accent"
+                  >
                     {course.name}
                   </a>
                   {course.duration && <span className="ml-2 text-sm font-normal text-gray-300">{course.duration}</span>}
@@ -37,7 +40,7 @@ export function UpcomingClasses() {
                         <span key={index}>
                           <a
                             href={course.page}
-                            className="text-sm text-slate-200 no-underline hover:underline decoration-2"
+                            className="inline-block text-sm text-slate-200 no-underline hover:underline active:underline decoration-2"
                           >
                             {schedule.d}
                           </a>
