@@ -1,6 +1,7 @@
 import { requestInfo as r } from 'rwsdk/worker'
 import { frontmatterIcons } from './icons'
 import { ButtonLink } from './ButtonLink'
+import { NewsletterForm } from './NewsletterForm'
 
 export function Footer() {
   const footer = r.ctx.pageContext?.siteData?.footer
@@ -17,21 +18,7 @@ export function Footer() {
         {footer?.links.map((link) => <ButtonLink href={link.href} text={link.text} key={link.href} />)}
       </div>
       <hr className="w-full mt-8 border-gray-500" />
-      <div className="mt-4">Sign up for our newsletter!</div>
-      <div
-        className="w-full max-w-xl mx-auto"
-        dangerouslySetInnerHTML={{
-          __html: `
-<script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/v2.js"></script>
-<script>
-  hbspt.forms.create({
-  region: "na1",
-  portalId: "4023639",
-  formId: "6b4ee505-897f-4264-9d29-54fbf751ab62"
-});
-</script>`
-        }}
-      />
+      <NewsletterForm />
       <hr className="w-full my-0 border-gray-500" />
       <div className="whitespace-pre-line text-center text-sm">{`FUTURE MEDIA CONCEPTS, INC.
         P.O. Box 1882
