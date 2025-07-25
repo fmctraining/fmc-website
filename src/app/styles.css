@@ -30,6 +30,14 @@
   --color-accent: #f19200; /* light-orangy */
 }
 
+a {
+  transition: transform 75ms; /* Transition for transform property over 75 milliseconds */
+}
+
+a:active {
+  transform: scale(0.96); /* Scale down to 96% when active */
+}
+
 .prose ul > li::marker {
   color: #008cff;
 }
@@ -147,16 +155,16 @@ li.triangle-pink::before {
 }
 
 .swoop {
-  animation: swoop-up 0.5s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+  animation: swoop-up 0.2s cubic-bezier(0.5, 0, 0.5, 1) forwards;
 }
 
 @keyframes swoop-up {
   0% {
-    transform: translateY(5vh) scale(0.9);
+    transform: scaleX(0.96) scaleY(0.99);
     opacity: 0;
   }
   100% {
-    transform: translateY(0) scale(1);
+    transform: scaleX(1) scaleY(1);
     opacity: 1;
   }
 }
