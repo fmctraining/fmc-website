@@ -145,3 +145,18 @@ li.triangle-pink::before {
   background-position: -0.8925em 0; /* show center portion */
   background-repeat: no-repeat;
 }
+
+.swoop {
+  animation: swoop-up 0.5s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+}
+
+@keyframes swoop-up {
+  0% {
+    transform: translateY(5vh) scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}

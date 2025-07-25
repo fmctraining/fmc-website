@@ -8,18 +8,20 @@ export function ScrollToTop() {
     let popStateWasCalled = false
 
     const observer = new MutationObserver(() => {
-      // avoid scrolling to top after popstate events
       if (!popStateWasCalled) {
-        // TODO: remove console.log
-        console.log('scroll to top')
+        const main = document.querySelector('main')
+        if (main) {
+          main.classList.remove('swoop')
+          // Force reflow to restart the animation
+          void main.offsetWidth
+          main.classList.add('swoop')
+        }
         window.scrollTo(0, 0)
       }
       popStateWasCalled = false
     })
 
     function handlePopState() {
-      // TODO: remove console.log
-      console.log('popstate')
       popStateWasCalled = true
     }
 
