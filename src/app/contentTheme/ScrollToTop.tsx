@@ -17,14 +17,23 @@ export function ScrollToTop() {
       popStateWasCalled = false
     })
 
+    function handlePopState() {
+      // TODO: remove console.log
+      console.log('popstate')
+      popStateWasCalled = true
+    }
+
     const main = document.querySelector('main')
 
     if (main) {
-      window.addEventListener('popstate', () => (popStateWasCalled = true))
+      window.addEventListener('popstate', handlePopState)
       observer.observe(main, { childList: true, subtree: true })
     }
 
-    return () => observer.disconnect()
+    return () => {
+      window.removeEventListener('popstate', handlePopState)
+      observer.disconnect()
+    }
   }, [])
 
   return null
