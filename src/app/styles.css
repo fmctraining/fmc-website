@@ -1,9 +1,7 @@
 /* https://rsms.me/inter/download/ */
 :root {
   font-family: Inter, sans-serif;
-  font-feature-settings:
-    'liga' 1,
-    'calt' 1; /* fix for Chrome */
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
 }
 @supports (font-variation-settings: normal) {
   :root {
@@ -32,6 +30,12 @@
 
 a:active {
   transform: scale(0.99);
+}
+
+@media (min-width: 768px) {
+  a:active {
+    transform: scale(0.98);
+  }
 }
 
 .prose a:active {
@@ -170,5 +174,18 @@ li.triangle-pink::before {
   100% {
     transform: scaleX(1);
     opacity: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  @keyframes swoop-up {
+    0% {
+      transform: scaleX(0.96);
+      opacity: 0;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
   }
 }

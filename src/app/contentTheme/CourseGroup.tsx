@@ -17,7 +17,7 @@ export function CourseGroup() {
           {pageData?.dir?.map((courseData, index) => (
             <a
               href={courseData.path}
-              className={`block border-4 rounded-2xl hover:bg-black/60 hover:shadow-lg hover:shadow-blue-400/30 ${borderColors[index % borderColors.length]} p-6`}
+              className={`group block border-4 rounded-2xl hover:bg-black/60 hover:shadow-lg hover:shadow-blue-400/30 ${borderColors[index % borderColors.length]} p-6`}
               key={courseData.path}
             >
               <div className="flex items-start gap-4">
@@ -29,7 +29,9 @@ export function CourseGroup() {
                   />
                 )}
                 <div className="flex-1">
-                  <h3 className={`text-xl font-bold ${textColors[index % textColors.length]} mb-2`}>
+                  <h3
+                    className={`text-xl font-bold ${textColors[index % textColors.length]} mb-2 group-hover:underline group-active:underline`}
+                  >
                     {courseData.attrs?.name || courseData.attrs?.title || courseData.path}
                   </h3>
                   {courseData.attrs?.['meta-description'] && (
