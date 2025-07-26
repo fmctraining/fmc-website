@@ -39,8 +39,8 @@ export function Search() {
       if (modal.open) {
         modal.close()
       } else {
-        await fetchCourses()
         modal.showModal()
+        await fetchCourses()
         setTimeout(() => {
           inputRef.current?.focus()
         }, 500)
