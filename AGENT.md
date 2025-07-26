@@ -13,6 +13,7 @@ This is a Cloudflare Workers RedwoodSDK project for a personal websiteapplicatio
 - Build: `pnpm build`
 - Deploy: `pnpm ship`
 - Regenerate worker-configuration.d.ts: `pnpm types`
+- Test: `pnpm test` (run after each job)
 
 ## CSS
 - Uses Tailwind CSS v4 with @tailwindcss vite plugin and DaisyUI
