@@ -88,7 +88,7 @@ export function Search() {
   }, [])
 
   return (
-    <div className="normal-case">
+    <div className="normal-case text-base">
       <button
         className="px-1 xs:px-2 md:px-6 py-1 md:py-3 -mr-1 xs:-mr-2 md:-mr-6 border-b-4 border-transparent hover:border-primary cursor-pointer"
         onClick={toggleSearch}
