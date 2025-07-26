@@ -114,7 +114,7 @@ export function Search() {
               <li key={course.id} className="">
                 <a
                   href={course.page}
-                  className="block rounded-2xl bg-black/50 py-2 px-4 my-1 -mx-2 hover:underline active:underline hover:text-primary hover:bg-slate-200"
+                  className="block rounded-xl bg-black/50 p-2 my-1 -mx-2 hover:underline active:underline hover:text-primary hover:bg-white"
                   onClick={() => modalRef.current?.close()}
                 >
                   {course.name}
