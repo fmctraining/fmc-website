@@ -29,7 +29,7 @@ export const Menu = () => {
           </a>
           <a
             href="/"
-            className="px-1 xs:px-2 sm:px-6 lg:px-8 py-1 md:py-3 hidden xxs:block border-r border-gray-400 border-b-4 border-b-transparent hover:border-b-primary"
+            className="px-1 xs:px-2 sm:px-6 lg:px-8 py-1 md:py-3 hidden xs:block border-r border-gray-400 border-b-4 border-b-transparent hover:border-b-primary"
           >
             Courses
           </a>
