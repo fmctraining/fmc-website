@@ -4,9 +4,11 @@ export const Document: React.FC<{ children: React.ReactNode }> = ({ children }) 
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/favicon.ico" />
+      <link rel="modulepreload" href="/src/client.tsx" />
     </head>
     <body>
       <div id="root" className="">{children}</div>
+      <script>import("/src/client.tsx")</script>
     </body>
   </html>
 )
