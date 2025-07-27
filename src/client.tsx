@@ -1,6 +1,8 @@
 import { initClient, initClientNavigation } from 'rwsdk/client'
 
-if (!document.getElementById('404')) {
-  initClient()
-  initClientNavigation()
-}
+document.addEventListener('DOMContentLoaded', () => {
+  if (!document.getElementById('404')) {
+    initClient()
+    initClientNavigation()
+  }
+})
