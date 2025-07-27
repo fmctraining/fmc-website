@@ -1,9 +1,7 @@
 import { requestInfo as r } from 'rwsdk/worker'
-import { Search } from './Search'
+// import { Search } from './Search'
 
 export const Menu = () => {
-  const pageData = r.ctx.pageContext?.pageData
-  const crumbs = pageData?.crumbs
   const path = new URL(r.request.url).pathname
   const isHome = path === '/'
   return (
@@ -45,7 +43,7 @@ export const Menu = () => {
           >
             Certifications
           </a>
-          <Search />
+          {/* <Search /> */}
         </div>
       </div>
     </div>
