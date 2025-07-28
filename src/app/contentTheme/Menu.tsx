@@ -10,7 +10,7 @@ export const Menu = () => {
     <div className="p-1 xxs:px-2 xxs:pt-2 md:px-[25px] md:pt-[25px] max-w-[1250px] mx-auto mb-2 md:mb-3">
       <div className={'navbar min-h-auto p-0 items-start'}>
         <div className="navbar-start">
-          <a href="/">
+          <a href="https://futuremedia-concepts.com/">
             <img
               src={isHome ? '/images/fmc_logo_05.png' : '/images/fmc_logo_top.png'}
               alt="FMC Logo"
