@@ -151,31 +151,3 @@ li.triangle-pink::before {
   background-position: -0.8925em 0; /* show center portion */
   background-repeat: no-repeat;
 }
-
-.swoop {
-  animation: swoop-up 0.25s cubic-bezier(0.5, 0, 0.5, 1) forwards;
-}
-
-@keyframes swoop-up {
-  0% {
-    transform: scaleX(0.98);
-    opacity: 0;
-  }
-  100% {
-    transform: scaleX(1);
-    opacity: 1;
-  }
-}
-
-@media (min-width: 768px) {
-  @keyframes swoop-up {
-    0% {
-      transform: scaleX(0.96);
-      opacity: 0;
-    }
-    100% {
-      transform: scaleX(1);
-      opacity: 1;
-    }
-  }
-}
