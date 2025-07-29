@@ -4,7 +4,6 @@ import { Metadata } from './Metadata'
 import { HomeBanner } from './HomeBanner'
 import { Breadcrumbs } from './Breadcrumbs'
 import { Footer } from './Footer'
-import { ScrollToTop } from './ScrollToTop'
 
 export function ContentLayout({ children }: { children: React.ReactNode }) {
   const path = new URL(r.request.url).pathname
@@ -14,9 +13,8 @@ export function ContentLayout({ children }: { children: React.ReactNode }) {
       <Metadata />
       <Menu />
       {isHome ? <HomeBanner /> : <Breadcrumbs />}
-      <main className="mx-2 min-h-[69vh] swoop">{children}</main>
+      <main className="mx-2 min-h-[69vh]">{children}</main>
       <Footer />
-      <ScrollToTop />
     </div>
   )
 }
