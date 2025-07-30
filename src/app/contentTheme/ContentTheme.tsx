@@ -30,6 +30,10 @@ export async function ContentTheme({ ctx, request }: RequestInfo) {
     // TODO: replace with requestInfo.status = 404 when available
     // https://github.com/redwoodjs/sdk/issues/568
     console.log(`404: ${request.url}`)
+    const url = new URL(request.url)
+    if (url.searchParams.has('__rsc')) {
+      return <NotFound />
+    }
     return new Response(await renderToStream(<NotFound />, { Document }), {
       status: 404
     })

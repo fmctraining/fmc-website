@@ -8,9 +8,8 @@ export function NotFound() {
     <ContentLayout>
       <div className="prose prose-invert mx-auto max-w-3xl">
         <h1 id="404" className="text-3xl sm:text-4xl md:text-5xl">
-          404
+          Page not found
         </h1>
-        <p>Page not found</p>
         <p>{r.request.url}</p>
       </div>
     </ContentLayout>
