@@ -1,6 +1,6 @@
 import { zapDirCache } from './markdown/get-dirs'
 import { zapRedirectCache } from './redirects'
-import { IS_DEV } from 'rwsdk/constants'
+import { IS_DEV } from '@/lib/dev'
 import { requestInfo } from 'rwsdk/worker'
 import { env } from 'cloudflare:workers'
 
@@ -28,6 +28,7 @@ export async function getManifest(noCache: boolean = false) {
       return manifestMemo
     }
   }
+  console.log('getManifest', 'noCache', noCache, 'IS_DEV', IS_DEV, 'VITE_IS_DEV_SERVER', import.meta.env.VITE_IS_DEV_SERVER)
 
   // local dev uses content directory in worker site public assets manifest
   if (IS_DEV && !env.GH_TEST) {
