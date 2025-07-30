@@ -7,7 +7,7 @@ export function Breadcrumbs() {
   return (
     <ul className="px-1 xxs:px-2 md:px-[20px] mt-3 max-w-[1250px] mx-auto flex flex-wrap justify-center lg:justify-start gap-2">
       <li key="0" className="">
-        <ButtonLink href="/" text="Courses Home" />
+        <ButtonLink href="/" text={crumbs?.length ? 'Courses' : 'Courses Home'} />
       </li>
       {crumbs?.map((crumb) => (
         <li key={crumb.path} className="">
