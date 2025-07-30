@@ -23,24 +23,24 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.10.1",
-    "@cloudflare/workers-types": "^4.20250724.0",
+    "@cloudflare/vite-plugin": "^1.10.2",
+    "@cloudflare/workers-types": "^4.20250730.0",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.11",
     "@types/markdown-it": "^14.1.2",
     "@types/mime-types": "^3.0.1",
     "@types/node": "^24.1.0",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "daisyui": "^5.0.46",
-    "dotenv": "^17.2.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "daisyui": "^5.0.50",
+    "dotenv": "^17.2.1",
     "fast-glob": "^3.3.3",
     "mime-types": "^3.0.1",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.8.3",
     "vite": "^7.0.6",
     "vitest": "^3.2.4",
-    "wrangler": "^4.26.0"
+    "wrangler": "^4.26.1"
   },
   "pnpm": {
     "peerDependencyRules": {
