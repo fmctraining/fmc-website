@@ -19,7 +19,7 @@
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0",
     "p-limit": "^6.2.0",
-    "rwsdk": "link:../../cloudflare/redwood/sdk/sdk",
+    "rwsdk": "0.2.0-alpha.4",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
