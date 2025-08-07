@@ -15,7 +15,9 @@ export function Vendor() {
       <div className="flex flex-col items-center gap-8">
         {pageData?.dir?.map((groupData, index) => (
           <div
-            className={`w-full md:max-w-3xl border-4 rounded-2xl hover:bg-black/30 ${borderColors[index % borderColors.length]} p-4`}
+            className={`w-full md:max-w-3xl border-4 rounded-2xl hover:bg-black/30 ${
+              borderColors[index % borderColors.length]
+            } p-4 intersect intersect-once opacity-0`}
             key={groupData.path}
           >
             <h2

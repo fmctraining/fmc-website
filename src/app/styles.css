@@ -151,3 +151,18 @@ li.triangle-pink::before {
   background-position: -0.8925em 0; /* show center portion */
   background-repeat: no-repeat;
 }
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intersect:not([no-intersect]) {
+  animation: fadeInUp 0.75s both;
+}
