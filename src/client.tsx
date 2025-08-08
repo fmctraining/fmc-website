@@ -14,7 +14,6 @@ const Observer = {
     elements.forEach((el) => {
       el.setAttribute('data-wait-for-animation', '')
     })
-    console.log('intersect-animate', elements.length, 'elements')
     const callback = (entries) => {
       entries.forEach((entry) => {
         requestAnimationFrame(() => {
@@ -22,7 +21,6 @@ const Observer = {
 
           if (entry.intersectionRatio >= 0.25) {
             if (!target.hasAttribute('data-animated')) {
-              console.log('intersect-animate', this.animationCounter)
               target.removeAttribute('data-wait-for-animation')
               target.setAttribute('data-animated', 'true')
 
@@ -53,6 +51,4 @@ const Observer = {
 
 if (!Observer.reducedMotion) {
   Observer.start()
-} else {
-  console.log('reduced motion')
 }
