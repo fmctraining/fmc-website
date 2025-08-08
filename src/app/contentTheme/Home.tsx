@@ -17,7 +17,7 @@ export function Home() {
           <div
             className={`w-full ms:w-sm border-4 rounded-2xl hover:bg-black/30 ${
               borderColors[index % borderColors.length]
-            } p-4 intersect intersect-once opacity-0`}
+            } p-4 intersect-animate`}
             key={index}
           >
             <h2

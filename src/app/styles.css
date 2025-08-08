@@ -18,6 +18,26 @@
   --color-accent: #f9ae40; /* #f19200 light-orangy */
 }
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .intersect-animate {
+    @apply motion-safe:md:opacity-0;
+  }
+  .intersect-animate:not([data-wait-for-animation]) {
+    @apply motion-safe:md:animate-[fadeInUp_0.75s_both];
+  }
+}
+
 a:active {
   transform: scale(0.99);
 }
@@ -150,19 +170,4 @@ li.triangle-pink::before {
   background-size: 2.6775em 0.6em; /* scale proportionally (357/80 * 0.6em = 2.6775em) */
   background-position: -0.8925em 0; /* show center portion */
   background-repeat: no-repeat;
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(2rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.intersect:not([no-intersect]) {
-  animation: fadeInUp 0.75s both;
 }
