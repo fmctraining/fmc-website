@@ -8,7 +8,7 @@ export function Page() {
   const title = pageData?.attrs?.name || pageData?.attrs?.title || pageData?.path
   return (
     <ContentLayout>
-      <h1 className="max-w-3xl m-auto text-3xl sm:text-4xl md:text-5xl">{title}</h1>
+      <h1 className="max-w-3xl m-auto text-3xl sm:text-4xl md:text-5xl intersect-animate">{title}</h1>
       <ContentHtml />
       <DirList />
     </ContentLayout>

@@ -13,6 +13,7 @@ export function ContentLayout({ children }: { children: React.ReactNode }) {
       <Metadata />
       <Menu />
       {isHome ? <HomeBanner /> : <Breadcrumbs />}
+      <div className="hidden md:motion-reduce:block absolute top-0 right-0 text-xs text-gray-300 uppercase">Reduced motion</div>
       <main className="mx-2 min-h-[69vh]">{children}</main>
       <Footer />
     </div>

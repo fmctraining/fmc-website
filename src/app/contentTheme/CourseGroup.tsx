@@ -19,7 +19,7 @@ export function CourseGroup() {
               href={courseData.path}
               className={`group block border-4 rounded-2xl hover:bg-black/60 hover:shadow-lg hover:shadow-blue-400/30 ${
                 borderColors[index % borderColors.length]
-              } p-6 intersect intersect-once opacity-0`}
+              } p-6 intersect-animate`}
               key={courseData.path}
             >
               <div className="flex items-start gap-4">

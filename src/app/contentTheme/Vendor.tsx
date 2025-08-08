@@ -17,7 +17,7 @@ export function Vendor() {
           <div
             className={`w-full md:max-w-3xl border-4 rounded-2xl hover:bg-black/30 ${
               borderColors[index % borderColors.length]
-            } p-4 intersect intersect-once opacity-0`}
+            } p-4 intersect-animate`}
             key={groupData.path}
           >
             <h2
