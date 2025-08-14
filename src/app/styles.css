@@ -29,14 +29,14 @@
   }
 }
 
-@layer utilities {
+/* @layer utilities {
   .intersect-animate {
     @apply motion-safe:md:opacity-0;
   }
   .intersect-animate:not([data-wait-for-animation]) {
     @apply motion-safe:md:animate-[fadeInUp_0.75s_both];
   }
-}
+} */
 
 a:active {
   transform: scale(0.99);
