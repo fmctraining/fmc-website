@@ -13,6 +13,7 @@ export function Footer() {
         width="1344"
         height="364"
         className="w-[400px] max-w-[80vw]"
+        loading="lazy"
       />
       <div className="flex flex-wrap justify-center gap-4">
         {footer?.links.map((link) => <ButtonLink href={link.href} text={link.text} key={link.href} />)}
