@@ -16,7 +16,9 @@ export function Footer() {
         loading="lazy"
       />
       <div className="flex flex-wrap justify-center gap-4">
-        {footer?.links.map((link) => <ButtonLink href={link.href} text={link.text} key={link.href} />)}
+        {footer?.links.map((link) => (
+          <ButtonLink href={link.href} text={link.text} key={link.href} />
+        ))}
       </div>
       {/* <hr className="w-full mt-8 border-gray-500" /> */}
       {/* <NewsletterForm /> */}
@@ -48,9 +50,14 @@ export function Footer() {
       <div className="text-sm text-center">
         If you are vision-impaired or have some other disability under the Americans with Disabilities Act or a similar
         law, and you wish to discuss potential accommodations related to using the Future Media Concepts website, please
-        contact joeln@fmctraining.com
+        contact{' '}
+        <a href="mailto:joeln@fmctraining.com" className="underline">
+          joeln@fmctraining.com
+        </a>
       </div>
-      <div className="text-sm text-center">© 2024 Future Media Concepts. All rights reserved. Established 1994.</div>
+      <div className="text-sm text-center">
+        © 2024 Future Media Concepts. All rights reserved. Established 1994<a href="/test-broken-link">.</a>
+      </div>
     </footer>
   )
 }

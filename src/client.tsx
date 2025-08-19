@@ -1,7 +1,8 @@
 // @ts-nocheck
 import { initClient, initClientNavigation } from 'rwsdk/client'
 
-initClient()
+const { handleResponse } = initClientNavigation()
+initClient({ handleResponse })
 
 const reducedMotion = window?.matchMedia('(prefers-reduced-motion: reduce)').matches
 const smallScreen = !window?.matchMedia('(min-width: 768px)').matches
