@@ -19,35 +19,28 @@
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0",
     "p-limit": "^7.1.1",
-    "rwsdk": "0.3.4",
+    "rwsdk": "1.0.0-alpha.4",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.12.3",
-    "@cloudflare/workers-types": "^4.20250906.0",
+    "@cloudflare/vite-plugin": "1.12.4",
+    "@cloudflare/workers-types": "^4.20250913.0",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.13",
     "@types/markdown-it": "^14.1.2",
     "@types/mime-types": "^3.0.1",
-    "@types/node": "^24.3.1",
-    "@types/react": "^19.1.12",
+    "@types/node": "^24.5.0",
+    "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
-    "daisyui": "^5.1.7",
+    "daisyui": "^5.1.12",
     "dotenv": "^17.2.2",
     "fast-glob": "^3.3.3",
     "mime-types": "^3.0.1",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2",
-    "vite": "^7.1.4",
+    "vite": "^7.1.5",
     "vitest": "^3.2.4",
-    "wrangler": "^4.34.0"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "allowedVersions": {
-        "vite": "7"
-      }
-    }
+    "wrangler": "4.35.0"
   },
   "prettier": {
     "printWidth": 120,
