@@ -3,6 +3,7 @@
   "name": "fmc-website",
   "main": "src/worker.tsx",
   "compatibility_date": "2025-09-06",
+  "preview_urls": true,
   "compatibility_flags": ["nodejs_compat", "nodejs_compat_do_not_populate_process_env"],
   "observability": {
     "enabled": true
