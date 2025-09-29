@@ -27,6 +27,6 @@ export async function ContentTheme() {
     }
   } else {
     requestInfo.response.status = 404
-    return <NotFound />
+    return requestInfo.request.method === 'GET' ? <NotFound /> : new Response('Not found', { status: 404 })
   }
 }
